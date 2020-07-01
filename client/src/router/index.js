@@ -8,6 +8,11 @@ Vue.use(VueRouter);
       path: '/',
       name: 'MainView',
       component: () => import('./../components/MainView')
+    },
+    {
+      path: '/todo/:id',
+      name: 'EditView',
+      component: () => import('./../components/EditView')
     }
   ];
 

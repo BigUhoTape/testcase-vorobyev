@@ -14,6 +14,10 @@ app.use(morgan('dev'));
 app.use(cors());
 app.use(express.static(path.join(__dirname, '../dist')));
 
+
+//Routes
+app.use('/api/todos', require('./Routes/TodoRoute'));
+
 async function start() {
   try {
     await mongoose.connect('mongodb+srv://Ivan:sofebo39@sneakvibe-2gt0p.mongodb.net/sneakVibe', {

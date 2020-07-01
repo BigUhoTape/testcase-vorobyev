@@ -1,7 +1,7 @@
 <template>
     <div :class="isDoneClass">
         <p class="todo__name"
-            @click="CHANGE_DONE(todo.id)"
+            @click="changeDone"
         >{{ todo.name }}</p>
         <div class="buttons">
             <router-link
@@ -11,7 +11,7 @@
             >Edit</router-link>
             <button
                     class="buttons__button buttons__button_delete"
-                    @click="DELETE_TODO(todo.id)"
+                    @click="DELETE_TODO(todo._id)"
             >Delete</button>
         </div>
     </div>
@@ -35,7 +35,14 @@
         ...mapActions([
             'CHANGE_DONE',
           'DELETE_TODO'
-        ])
+        ]),
+        changeDone() {
+          const item = {
+            _id: this.todo._id,
+            done: !this.todo.done
+          };
+          this.CHANGE_DONE(item);
+        }
       },
       computed: {
         isDoneClass() {

@@ -31,7 +31,7 @@
           'EDIT_TODO'
         ]),
         editTodo() {
-          this.EDIT_TODO({ id: this.$route.params.id, todo: this.todo });
+          this.EDIT_TODO({ id: this.$route.params.id, _id: this.todo._id, name: this.todo.name });
         }
       },
       computed: {

@@ -4,7 +4,7 @@
                 type="text"
                 placeholder="Enter new Todo"
                 class="addTodo__input"
-                v-model="newTodo"
+                v-model="name"
         >
         <button
                 class="addTodo__btn"
@@ -20,7 +20,7 @@
       name: 'AddTodo',
       data() {
         return {
-          newTodo: ''
+          name: ''
         }
       },
       methods: {
@@ -28,13 +28,8 @@
           'ADD_TODO'
         ]),
         addTodo() {
-          const newTodo = {
-            id: 4,
-            name: this.newTodo,
-            done: false
-          };
-          this.ADD_TODO(newTodo);
-          this.newTodo = '';
+          this.ADD_TODO(this.name);
+          this.name = '';
         }
       }
     }

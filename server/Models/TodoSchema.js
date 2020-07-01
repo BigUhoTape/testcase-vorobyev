@@ -1,13 +1,9 @@
 const { Schema, model } = require('mongoose');
 
 const todoSchema = new Schema({
-  name: {
-    type: String,
-    required: true
-  },
+  name: String,
   done: {
     type: Boolean,
-    required: true,
     default: false
   }
 });
